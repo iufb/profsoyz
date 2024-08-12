@@ -56,7 +56,7 @@ const CarouselClient = ({ items, position }: CarouselProps) => {
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           className="absolute object-cover rounded-md"
                           fill
-                          objectFit="cover"
+                          style={{ objectFit: "cover" }}
                           alt={item.title ?? `carousel item ${idx}`}
                         />
                       </Comp>
