@@ -1,4 +1,5 @@
 "use client";
+import { Langs } from "@/shared/lib/types";
 import {
   Button,
   Dialog,
@@ -10,21 +11,23 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/shared/ui";
-import { PageEditorContent } from "./PageEditorContent";
-import { usePathname, useRouter } from "next/navigation";
-import { Langs } from "@/shared/lib/types";
 import { useTranslations } from "next-intl";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { PageEditorContent } from "./PageEditorContent";
 
 export const PageEditor = ({ ids }: { ids: Langs }) => {
   const router = useRouter();
   const path = usePathname();
   const t = useTranslations("pages.pageEditor");
+  const searchParams = useSearchParams();
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button
           onClick={() => {
-            router.push(`${path}?ruId=${ids.ru}&kzId=${ids.kz}`);
+            router.push(
+              `${path}?ruPageId=${searchParams.get("ruPageId")}&kzPageId=${searchParams.get("kzPageId")}&ruId=${ids.ru}&kzId=${ids.kz}`,
+            );
           }}
           size={"sm"}
         >

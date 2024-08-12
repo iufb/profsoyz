@@ -30,6 +30,16 @@ export function formatDateToDDMMYYYY(dateString: string) {
   return `${day}-${month}-${year} ${hours}h-${minutes}m`;
 }
 
+export function constructUrl(path: string, params: Record<string, any>) {
+  const url = new URL(path, window.location.origin);
+
+  // Append search params
+  for (const [key, value] of Object.entries(params)) {
+    url.searchParams.set(key, value);
+  }
+
+  return url.toString();
+}
 export const combinePagesByLang = (records: BackedPage[]): IPage[] => {
   const combinedRecords: { [key: string]: IPage } = {};
 
