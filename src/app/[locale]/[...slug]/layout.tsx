@@ -1,8 +1,8 @@
+import { VisitChecker } from "@/features/";
 import { getNavbarPages } from "@/shared/api/pages";
 import { Separator } from "@/shared/ui";
 import { BreadCrumbs, Header } from "@/widgets";
 import { Mail, MapPin, Phone } from "lucide-react";
-import Link from "next/link";
 import { ReactNode } from "react";
 const getPages = async (locale: string) => {
   const pages = await getNavbarPages(locale);
@@ -20,6 +20,7 @@ export default async function Layout({
   return (
     <section>
       <Header />
+      <VisitChecker />
       <main className="max-w-[1200px] min-h-[100svh] overflow-y-auto mx-auto px-5 xl:px-0   mb-10 mt-5 md:mt-20 ">
         <BreadCrumbs locale={params.locale} slug={params.slug} pages={pages} />
         <div className="shadow-lg rounded-3xl flex lg:p-10 p-3  flex-col gap-10">

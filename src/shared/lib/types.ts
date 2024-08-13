@@ -1,6 +1,7 @@
 export type NavPage = BackedPage & { children: NavPage[] };
 export type PageType = "content" | "group";
 export type Langs = { ru: string | number; kz: string | number };
+export type Visit = { id: number; vizit: number; date: string };
 export interface IPage {
   kzId: number | null;
   ruId: number | null;

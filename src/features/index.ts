@@ -1,4 +1,5 @@
 export { DeletePageBtn } from "./DeletePageBtn";
+export { VisitChecker } from "./VisitChecker";
 export { LogoutButton } from "./LogoutButton";
 export { LoginForm } from "./LoginForm";
 export { PreviewButton } from "./PreviewButton";

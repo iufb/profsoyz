@@ -1,4 +1,5 @@
 import Accordion from "./Accordion/Accordion";
+export { VisitBarChart } from "./VisitBarChart";
 import AccordionEditModal from "./Accordion/AccordionEditModal";
 import Cards from "./Cards/Cards";
 import CardsEditModal from "./Cards/CardsEditModal";
