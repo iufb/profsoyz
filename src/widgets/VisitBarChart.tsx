@@ -93,8 +93,10 @@ export function VisitBarChart() {
               <button
                 onClick={() => setSelectedDays(day)}
                 className={clsx(
-                  "min-w-4 px-2 py-1 bg-white border  rounded-md",
-                  selectedDays == day && "bg-gray-950 font-bold text-white",
+                  "min-w-4 px-2 py-1   border  rounded-md",
+                  selectedDays == day
+                    ? "bg-black font-bold text-white"
+                    : "text-black bg-white",
                 )}
                 key={day}
               >
