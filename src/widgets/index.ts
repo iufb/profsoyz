@@ -85,7 +85,7 @@ export const getEditModal = (
       kzPageId: +kzPageId,
       queryKey,
     };
-    const editModal = editModalList.find((m) => m.name.includes(modal));
+    const editModal = editModalList.find((m) => m.displayName.includes(modal));
     if (editModal) {
       const variant = template ? "dialog" : "card";
       return editModal({ variant, ...baseProps });
