@@ -2,6 +2,8 @@
 import ReactQuill from "react-quill";
 import { Label } from "./label";
 import "react-quill/dist/quill.snow.css";
+import { useEffect, useRef, useState } from "react";
+import { Checkbox } from "@/shared/ui/checkbox";
 const quillModules = {
   toolbar: [
     [{ size: [] }],
@@ -24,7 +26,7 @@ interface QuillEditor {
 }
 const QuillEditor = ({ value, onChange, label }: QuillEditor) => {
   return (
-    <div>
+    <div className="flex flex-col gap-3">
       <Label>{label}</Label>
       <ReactQuill
         value={value}
