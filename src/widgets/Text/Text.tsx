@@ -8,7 +8,7 @@ function Text({ heading, content }: TextProps) {
     <section className="p-4 ">
       <h2 className="text-3xl mb-2 ">{heading}</h2>
       <div
-        className="overflow-x-auto"
+        className="overflow-x-auto overflow-y-hidden"
         dangerouslySetInnerHTML={{
           __html: content
             .replace(/&lt;/g, "<")
