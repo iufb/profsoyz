@@ -152,6 +152,12 @@ export const PageEditorContent = ({
   };
   const onWidgetDelete = async (id: number) => {
     const widgetToDelete = list.find((li) => li.id === id);
+    console.log(widgetToDelete);
+
+    if (!widgetToDelete.props) {
+      setList(list.filter((li) => li.id !== id));
+      updateOrder(list.filter((li) => li.id !== id));
+    }
     if (widgetToDelete && widgetToDelete.props) {
       Promise.all([
         deleteMutation({
@@ -199,12 +205,12 @@ export const PageEditorContent = ({
       const updatedList = await Promise.all(updatePromises);
       setList(updatedList);
       toast({
-        title: t("toast.updatedList.success"),
+        title: t("toast.updateList.success"),
       });
     } catch (error) {
       console.error("Error updating widget order:", error);
       toast({
-        title: t("toast.updatedList.error"),
+        title: t("toast.updateList.error"),
         variant: "destructive",
       });
     }
