@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 
 interface AnimatedTextProps {
   text: string[];
+  className?: string;
 }
-export const AnimatedText = ({ text }: AnimatedTextProps) => {
+export const AnimatedText = ({ text, className }: AnimatedTextProps) => {
   const [activeText, setActiveText] = useState(0);
   const [fade, setFade] = useState("fade-in");
 
@@ -24,8 +25,9 @@ export const AnimatedText = ({ text }: AnimatedTextProps) => {
   return (
     <h1
       className={clsx(
-        "font-bold text-md min-h-[80px] md:justify-self-center  flex justify-center items-center sm:text-md md:text-lg lg:text-xl w-full  md:w-[362px]  text-center  md:text-wrap text-white",
+        "font-bold text-md md:justify-self-center  flex justify-center items-center   w-full   text-center  md:text-wrap text-white",
         fade == "fade-in" ? "animate-fadeIn" : "animate-fadeOut",
+        className,
       )}
     >
       {text[activeText]}

@@ -24,7 +24,7 @@ export const SocialLinks = () => {
         <li key={idx}>
           <a href={link.href} target="_blank">
             <Image
-              className="fill-current text-white stroke-white"
+              className="fill-current text-cyan-500 stroke-white"
               src={link.image}
               alt={link.name}
               width={20}

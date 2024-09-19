@@ -24,6 +24,7 @@ const config = {
       },
       backgroundImage: {
         "footer-texture": "url('/brush.svg')",
+        "navbar-texture": "url('/brush-nav.svg')",
       },
       colors: {
         border: "hsl(var(--border))",

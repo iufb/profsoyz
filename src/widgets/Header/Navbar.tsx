@@ -34,6 +34,18 @@ export const Navbar = () => {
   });
 
   const [scrolled, setScrolled] = useState(false);
+  const [navItemNumber, setNavItemNumber] = useState(5);
+  useEffect(() => {
+    if (window) {
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1100) {
+          setNavItemNumber(5);
+        } else {
+          setNavItemNumber(3);
+        }
+      });
+    }
+  }, []);
   useEffect(() => {
     if (window) {
       window.addEventListener("scroll", () => {
@@ -55,20 +67,29 @@ export const Navbar = () => {
   return (
     <nav
       className={clsx(
-        "h-[54px]   md:z-50 md:top-0 hidden md:flex justify-center items-center  bg-white shadow-xl",
-        scrolled ? "md:fixed md:left-0 md:right-0 md:top-0" : "md:static",
+        "h-[54px]   md:z-50 md:top-0 hidden md:flex justify-center items-center    ",
+        scrolled
+          ? "md:fixed md:left-0 md:right-0 md:top-0 shadow-xl bg-white "
+          : "md:static  bg-inherit",
       )}
     >
       <ul className="max-w-[1200px]  overflow-hidden  mx-auto gap-5 items-center justify-center flex ">
         {isFetching ? (
-          <Skeleton className="w-[500px] h-10" />
+          <Skeleton
+            className={`w-[500px] ${scrolled ? "bg-slate-100" : "bg-cyan-700"} h-10`}
+          />
         ) : pages ? (
-          <section className="flex text-cyan-500  text-start gap-5 text-xl">
-            <NavList locale={params.locale} pages={pages.slice(0, 5)} />
-            {pages.length > 5 && (
+          <section
+            className={`flex ${scrolled ? "text-cyan-500" : "text-white"}  text-start gap-5 text-xl`}
+          >
+            <NavList
+              locale={params.locale}
+              pages={pages.slice(0, navItemNumber)}
+            />
+            {pages.length > navItemNumber && (
               <HoverMenu
                 locale={params.locale}
-                pages={pages.slice(5, pages.length)}
+                pages={pages.slice(navItemNumber, pages.length)}
               />
             )}
           </section>
@@ -90,9 +111,9 @@ const HoverMenu = ({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="flex py-1 px-5  items-end h-full" variant={"ghost"}>
+        <button className="flex outline-none hover:bg-cyan-800 rounded-md py-1 px-5   items-end h-full">
           <span className="text-xl">...</span>
-        </Button>
+        </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="start"
@@ -118,7 +139,7 @@ const NavList = ({
       return (
         <Link
           className={clsx(
-            "text-center p-1 rounded-md    hover:bg-gray-100",
+            "text-center p-1 rounded-md hover:text-white    hover:bg-cyan-800",
             path == `/${locale}${page.slug}` && "font-bold",
           )}
           href={`/${locale}/${page.slug}`}
@@ -131,7 +152,7 @@ const NavList = ({
       return (
         <DropdownMenu key={page.id}>
           <DropdownMenuTrigger asChild>
-            <div className="p-1 cursor-pointer  rounded-md flex gap-2 items-center text-center  justify-normal hover:bg-gray-100">
+            <div className="p-1 cursor-pointer  rounded-md flex gap-2 items-center text-center hover:text-white  justify-normal hover:bg-cyan-800">
               <span className="ml-5">{page.title}</span>
               <ChevronRight className={clsx("transition rotate-90 mt-1")} />
             </div>

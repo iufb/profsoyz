@@ -1,6 +1,6 @@
 import { VisitChecker } from "@/features/";
 import { getNavbarPages } from "@/shared/api/pages";
-import { Separator } from "@/shared/ui";
+import { AnimatedText, Separator } from "@/shared/ui";
 import { BreadCrumbs, Header } from "@/widgets";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { ReactNode } from "react";
@@ -8,7 +8,31 @@ const getPages = async (locale: string) => {
   const pages = await getNavbarPages(locale);
   return pages;
 };
-
+const HeroSection = ({
+  params,
+}: {
+  params: { slug: string[]; locale: string };
+}) => {
+  return (
+    <div
+      className={`${params.slug[0] == "home" ? "left-0 -z-10 right-0 relative " : "hidden"} `}
+    >
+      <div className=" left-0 right-0 top-0 bottom-0 absolute opacity-25 bg-cyan-700 " />
+      <img
+        className="-z-20"
+        alt="hero-bg"
+        src="https://www.itcilo.org/themes/custom/itcilo_theme/dist/images/torino-landscape.jpg"
+      />
+      <AnimatedText
+        className="z-10 max-w-[1200px] md:text-5xl text-xl w-fit -translate-x-1/2 md:-translate-x-0  left-1/2 right-1/2 top-1/2 bottom-1/2 absolute "
+        text={[
+          "ПРОФСОЮЗ РАБОТНИКОВ ОБРАЗОВАНИЯ ГОРОДА АСТАНЫ",
+          "АСТАНА ҚАЛАСЫНЫҢ БІЛІМ БЕРУ ҚЫЗМЕТКЕРЛЕРІНІҢ КӘСІПОДАҒЫ",
+        ]}
+      />
+    </div>
+  );
+};
 export default async function Layout({
   children,
   params,
@@ -21,7 +45,10 @@ export default async function Layout({
     <section>
       <Header />
       <VisitChecker />
-      <main className="max-w-[1200px] min-h-[100svh] overflow-y-auto mx-auto px-5 xl:px-0   mb-10 mt-5 md:mt-20 ">
+      <HeroSection params={params} />
+      <main
+        className={`max-w-[1400px] min-h-[100svh] overflow-y-auto mx-auto px-5 xl:px-0   mb-10 ${params.slug[0] == "home" ? "mt-0" : "mt-5 md:mt-20 "} `}
+      >
         <BreadCrumbs locale={params.locale} slug={params.slug} pages={pages} />
         <div className="shadow-lg rounded-3xl flex lg:p-10 p-3  flex-col gap-10">
           {children}

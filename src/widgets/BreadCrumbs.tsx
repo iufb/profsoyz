@@ -41,9 +41,8 @@ export const BreadCrumbs = ({
   pages: NavPage[];
 }) => {
   const crumbs = getBreadCrumbs(slug, pages);
-
   return (
-    <Breadcrumb>
+    <Breadcrumb className={`${slug[0] == "home" && "hidden"}`}>
       <BreadcrumbList>
         {crumbs.map((crumb, idx) => (
           <BreadcrumbItem className="text-cyan-500 font-bold text-xl" key={idx}>
