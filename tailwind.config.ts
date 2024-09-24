@@ -23,10 +23,15 @@ const config = {
         gallery: "repeat(3, minmax(200px, 1fr))",
       },
       backgroundImage: {
+        "brush-white": "url('/brush-white.svg')",
         "footer-texture": "url('/brush.svg')",
         "navbar-texture": "url('/brush-nav.svg')",
       },
       colors: {
+        base1: "#07575b",
+        base2: "#003b46",
+        base3: "#66a5ad",
+        base4: "#c4dfe6",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

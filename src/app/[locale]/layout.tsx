@@ -1,12 +1,12 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import type { Metadata } from "next";
-import { Catamaran } from "next/font/google";
+import { Catamaran, Inria_Sans, PT_Mono } from "next/font/google";
 import "../globals.css";
 import { QueryProvider } from "@/shared/providers";
 import { Toaster } from "@/shared/ui";
 
-const inter = Catamaran({ subsets: ["latin"] });
+const font = PT_Mono({ weight: ["400"], subsets: ["latin"] });
 
 export default async function LocaleLayout({
   children,
@@ -21,7 +21,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={inter.className}>
+      <body className={font.className}>
         <NextIntlClientProvider messages={messages}>
           <QueryProvider>{children}</QueryProvider>
           <Toaster />

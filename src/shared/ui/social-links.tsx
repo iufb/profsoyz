@@ -1,19 +1,20 @@
+import { Facebook, Instagram, Youtube } from "lucide-react";
 import Image from "next/image";
 
 const links = [
   {
     name: "Instagram",
-    image: "/icons/instagram.svg",
+    image: <Instagram className="text-base2" />,
     href: "https://www.instagram.com",
   },
   {
     name: "Facebook",
-    image: "/icons/facebook.svg",
+    image: <Facebook className="text-base2" />,
     href: "https://www.facebook.com",
   },
   {
     name: "YouTube",
-    image: "/icons/youtube.svg",
+    image: <Youtube className="text-base2" />,
     href: "https://www.youtube.com",
   },
 ];
@@ -23,13 +24,7 @@ export const SocialLinks = () => {
       {links.map((link, idx) => (
         <li key={idx}>
           <a href={link.href} target="_blank">
-            <Image
-              className="fill-current text-cyan-500 stroke-white"
-              src={link.image}
-              alt={link.name}
-              width={20}
-              height={20}
-            />
+            {link.image}
           </a>
         </li>
       ))}

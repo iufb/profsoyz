@@ -32,11 +32,11 @@ export const InfoItem = ({
         height={400}
       />
       <div className="flex  flex-col gap-6">
-        <h3 className="text-2xl text-cyan-500 font-bold">{title}</h3>
+        <h3 className="text-2xl text-base3 font-bold">{title}</h3>
         <p className="text-lg">{content}</p>
         {href && (
           <Link
-            className="text-lg text-cyan-500 border border-cyan-500 w-fit px-2 py-1 rounded-md "
+            className="text-lg text-base3 border border-base3 w-fit px-2 py-1 rounded-md "
             href={`/${locale}/${href}`}
           >
             {linkText}

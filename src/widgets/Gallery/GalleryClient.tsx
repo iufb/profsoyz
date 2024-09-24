@@ -22,7 +22,7 @@ interface GalleryItem {
 function GalleryClient({ items }: GalleryProps) {
   const [selected, setSelected] = useState(0);
   return (
-    <div className="grid gap-4 justify-center w-full">
+    <div className="grid bg-base3 p-5 rounded-sm gap-4 justify-center w-full">
       <div className="grid flex-nowrap   grid-cols-gallery lg:grid-cols-4 gap-4 overflow-x-auto">
         {items.map((item, idx) => (
           <Dialog key={idx}>
@@ -42,7 +42,7 @@ function GalleryClient({ items }: GalleryProps) {
                 />
               </div>
             </DialogTrigger>
-            <DialogContent className=" rounded-md min-w-[calc(100vw-100px)] h-auto  ">
+            <DialogContent className=" bg-base4 rounded-md min-w-[calc(100vw-100px)] h-auto  ">
               <DialogHeader>
                 <DialogTitle className="opacity-0">Gallery modal</DialogTitle>
                 <DialogDescription className="opacity-0">

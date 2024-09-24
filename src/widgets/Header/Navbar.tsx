@@ -69,18 +69,18 @@ export const Navbar = () => {
       className={clsx(
         "h-[54px]   md:z-50 md:top-0 hidden md:flex justify-center items-center    ",
         scrolled
-          ? "md:fixed md:left-0 md:right-0 md:top-0 shadow-xl bg-white "
+          ? "md:fixed md:left-0 md:right-0 md:top-0 shadow-xl bg-base4 "
           : "md:static  bg-inherit",
       )}
     >
       <ul className="max-w-[1200px]  overflow-hidden  mx-auto gap-5 items-center justify-center flex ">
         {isFetching ? (
           <Skeleton
-            className={`w-[500px] ${scrolled ? "bg-slate-100" : "bg-cyan-700"} h-10`}
+            className={`w-[500px] ${scrolled ? "bg-slate-100" : "bg-base1"} h-10`}
           />
         ) : pages ? (
           <section
-            className={`flex ${scrolled ? "text-cyan-500" : "text-white"}  text-start gap-5 text-xl`}
+            className={`flex ${scrolled ? "text-base2" : "text-white"}  text-start gap-5 text-xl`}
           >
             <NavList
               locale={params.locale}
@@ -111,13 +111,13 @@ const HoverMenu = ({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="flex outline-none hover:bg-cyan-800 rounded-md py-1 px-5   items-end h-full">
+        <button className="flex outline-none transition-colors hover:bg-base1 rounded-md py-1 px-5   items-end h-full">
           <span className="text-xl">...</span>
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="start"
-        className=" flex flex-col gap-3  text-cyan-500 "
+        className=" flex flex-col gap-3  text-base2 "
       >
         <div className="flex flex-col gap-3">
           <NavList pages={pages} locale={locale} />
@@ -152,14 +152,14 @@ const NavList = ({
       return (
         <DropdownMenu key={page.id}>
           <DropdownMenuTrigger asChild>
-            <div className="p-1 cursor-pointer  rounded-md flex gap-2 items-center text-center hover:text-white  justify-normal hover:bg-cyan-800">
+            <div className="p-1 cursor-pointer  rounded-md flex gap-2 items-center text-center hover:text-white  justify-normal hover:bg-base1">
               <span className="ml-5">{page.title}</span>
               <ChevronRight className={clsx("transition rotate-90 mt-1")} />
             </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent
             align="start"
-            className=" flex flex-col gap-3  text-cyan-500 "
+            className=" flex flex-col gap-3  text-base2 "
           >
             <NavList locale={locale} pages={page.children} />
           </DropdownMenuContent>

@@ -30,10 +30,10 @@ export const Card = ({
       className={cn(
         {
           horizontal:
-            "w-full grid grid-cols-[1fr_2fr] gap-2 h-[200px]  after:bottom-0 after:top-0   after:left-0 after:-right-[3px]  ",
-          base: "flex w-full  h-[308px] flex-col after:-bottom-[3px] after:top-0 after:left-0 after:right-0 ",
+            "w-full grid grid-cols-[1fr_2fr] gap-2 h-[200px]  after:bottom-0 after:top-0   after:left-0 after:-right-[6px]  ",
+          base: "flex w-full  h-[308px] flex-col after:-bottom-[6px] after:top-0 after:left-0 after:right-0 ",
         }[variant],
-        "after:bg-cyan-400 after:-z-10 after:rounded-md after:absolute  bg-slate-100 p-4 rounded-md relative",
+        "after:bg-base4 after:-z-10 after:rounded-md after:absolute text-white  bg-base3 p-4 rounded-md relative",
       )}
     >
       <div
