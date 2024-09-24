@@ -4,10 +4,11 @@ import clsx from "clsx";
 import { Metadata, ResolvingMetadata } from "next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { PageProps } from "../../../../../.next/types/app/layout";
 export async function generateMetadata({
   params,
-}: PageProps): Promise<Metadata> {
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
   const { locale } = params;
 
   return {
