@@ -21,7 +21,7 @@ export interface InfoItemProps {
 function Info({ title, content, items }: InfoProps) {
   return (
     <section className="flex flex-col gap-10">
-      <h2 className="text-3xl text-center">{title}</h2>
+      <h2 className="text-3xl text-base2 text-center">{title}</h2>
       <p className="text-xl text-center">{content}</p>
       {items.map((item, idx) => (
         <InfoItem {...item} key={idx} />

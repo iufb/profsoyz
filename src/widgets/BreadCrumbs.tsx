@@ -43,9 +43,12 @@ export const BreadCrumbs = ({
   const crumbs = getBreadCrumbs(slug, pages);
   return (
     <Breadcrumb className={`${slug[0] == "home" && "hidden"}`}>
-      <BreadcrumbList>
+      <BreadcrumbList className="max-w-[90vw] flex-nowrap overflow-x-auto">
         {crumbs.map((crumb, idx) => (
-          <BreadcrumbItem className="text-cyan-500 font-bold text-xl" key={idx}>
+          <BreadcrumbItem
+            className="text-base1 font-bold text-sm md:text-xl"
+            key={idx}
+          >
             <BreadcrumbLink
               href={
                 crumb.type == "content" ? `/${locale}${crumb.slug}` : undefined

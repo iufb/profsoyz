@@ -43,12 +43,12 @@ export const BurgerMenu = () => {
       <Button
         size={"icon"}
         variant={"ghost"}
-        className="flex text-cyan-500  justify-center items-center md:hidden "
+        className="flex text-base2  justify-center items-center md:hidden "
         onClick={() => setOpen(true)}
       >
         <Menu size={32} />
       </Button>
-      <DrawerContent className="rounded-none bg-cyan-500  border-none px-4 py-14">
+      <DrawerContent className="rounded-none  z-[70] bg-base1  border-none px-4 py-14">
         <div className="relative flex flex-col gap-3 text-xl text-white">
           <Button
             onClick={() => setOpen(false)}
@@ -92,7 +92,7 @@ const MenuLink = ({
         <DrawerTrigger className="text-start flex justify-start items-center gap-3">
           {page.title} <ChevronRight className="" />
         </DrawerTrigger>
-        <DrawerContent className="rounded-none bg-cyan-500  border-none px-4 py-14">
+        <DrawerContent className="rounded-none bg-base2 z-[70]  border-none px-4 py-14">
           <div className=" relative flex flex-col gap-3 text-xl text-white ">
             <Button
               onClick={() => setOpen(false)}

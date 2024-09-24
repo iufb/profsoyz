@@ -8,7 +8,7 @@ import Image from "next/image";
 export const Header = () => {
   return (
     <header className="h-auto relative   bg-base2 flex flex-col gap-2   w-full  ">
-      <section className="h-16  mr-0  md:pr-10 flex gap-6 items-center md:static fixed bg-base4 z-50 left-0 right-0 top-0  justify-end pt-3 pr-3">
+      <section className="h-16  mr-0  md:pr-10 flex gap-6 items-center md:static fixed bg-base4 z-[60] left-0 right-0 top-0  justify-end pt-3 pr-3">
         <Links />
         <SocialLinks />
         <ChangeLocale />

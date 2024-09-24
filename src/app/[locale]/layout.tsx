@@ -1,10 +1,9 @@
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import type { Metadata } from "next";
-import { Catamaran, Inria_Sans, PT_Mono } from "next/font/google";
-import "../globals.css";
 import { QueryProvider } from "@/shared/providers";
 import { Toaster } from "@/shared/ui";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { PT_Mono } from "next/font/google";
+import "../globals.css";
 
 const font = PT_Mono({ weight: ["400"], subsets: ["latin"] });
 

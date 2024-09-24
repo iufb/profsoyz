@@ -1,8 +1,19 @@
 import { useCheckToken } from "@/shared/lib/hooks/useCheckToken";
 import { AdminSidebar } from "@/widgets";
 import clsx from "clsx";
+import { Metadata, ResolvingMetadata } from "next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { PageProps } from "../../../../../.next/types/app/layout";
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = params;
+
+  return {
+    title: locale == "ru" ? "Админ панель" : "Әкімші панелі",
+  };
+}
 export default function AdminLayout({
   children,
   params,

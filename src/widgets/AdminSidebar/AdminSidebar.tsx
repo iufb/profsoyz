@@ -8,7 +8,7 @@ import { cookies } from "next/headers";
 
 const links = [
   { label: "links.home.label", href: "links.home.href" },
-  { label: "links.settings.label", href: "links.settings.href" },
+  // { label: "links.settings.label", href: "links.settings.href" },
   { label: "links.pages.label", href: "links.pages.href" },
   { label: "links.templates.label", href: "links.templates.href" },
 ];

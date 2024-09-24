@@ -9,7 +9,7 @@ interface CardsProps {
 function Cards({ title, variant, items }: CardsProps) {
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="text-2xl font-bold">{title}</h2>
+      <h2 className="text-2xl text-base2 font-bold">{title}</h2>
       <div
         className={cn(
           variant == "base"

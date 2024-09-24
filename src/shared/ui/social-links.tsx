@@ -15,7 +15,7 @@ const links = [
   {
     name: "YouTube",
     image: <Youtube className="text-base2" />,
-    href: "https://www.youtube.com",
+    href: "https://www.youtube.com/channel/UCBahmcthWl_O9zsdiRtsWvA",
   },
 ];
 export const SocialLinks = () => {
