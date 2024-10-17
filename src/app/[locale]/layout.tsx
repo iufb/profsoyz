@@ -2,11 +2,19 @@ import { QueryProvider } from "@/shared/providers";
 import { Toaster } from "@/shared/ui";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { PT_Mono } from "next/font/google";
+import { PT_Mono, Open_Sans } from "next/font/google";
 import "../globals.css";
 
-const font = PT_Mono({ weight: ["400"], subsets: ["latin"] });
-
+const font = PT_Mono({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-pt",
+});
+const navFont = Open_Sans({
+  weight: ["400", "600"],
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 export default async function LocaleLayout({
   children,
   params: { locale },
@@ -20,7 +28,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={font.className}>
+      <body className={`${font.variable} ${navFont.variable}`}>
         <NextIntlClientProvider messages={messages}>
           <QueryProvider>{children}</QueryProvider>
           <Toaster />

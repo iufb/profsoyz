@@ -45,7 +45,7 @@ const CarouselClient = ({ items, position }: CarouselProps) => {
             return (
               <CarouselItem key={idx}>
                 <div className="p-1  ">
-                  <Card className="py-0 px-1 md:p-4 flex flex-col bg-base3  gap-4">
+                  <Card className="py-0 px-1 md:p-4 flex flex-col bg-base6  gap-4">
                     <CardTitle>{item.title}</CardTitle>
                     <CardContent className="flex   cursor-grab overflow-hidden   items-center justify-center p-1  ">
                       <Comp
@@ -63,7 +63,7 @@ const CarouselClient = ({ items, position }: CarouselProps) => {
                       </Comp>
                     </CardContent>
                     <CardDescription
-                      className={clsx("text-justify text-white")}
+                      className={clsx("text-justify text-base2")}
                     >
                       {item.content}
                     </CardDescription>

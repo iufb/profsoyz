@@ -23,7 +23,7 @@ function Accordion({ items }: AccordionProps) {
           <AccordionTrigger className="text-xl px-2  text-base2">
             {item.question}
           </AccordionTrigger>
-          <AccordionContent className="text-lg bg-base3 text-base2 p-2 ">
+          <AccordionContent className="text-lg bg-base6 text-base2 p-2 ">
             {item.answer}
           </AccordionContent>
         </AccordionItem>

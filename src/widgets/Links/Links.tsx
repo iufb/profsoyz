@@ -10,7 +10,7 @@ function Links({ title, items }: LinksProps) {
         {items.map((li, idx) => (
           <li
             key={idx}
-            className="hover:text-base3 text-xl underline hover:underline-offset-2 hover:decoration-base3 "
+            className="hover:text-base4 text-xl underline hover:underline-offset-2 hover:decoration-base4 "
           >
             <a href={li.link} target="_blank">
               {li.name}

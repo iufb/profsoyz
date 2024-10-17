@@ -100,3 +100,8 @@ body {
     @apply bg-background text-foreground;
   }
 }
+@layer components {
+  .headerBrush {
+    @apply before:w-full  before:h-2 md:before:h-5  relative before:z-50 before:absolute before:left-0 before:right-0 before:bg-brush1 before:bg-repeat-x before:-bottom-2  md:before:-bottom-5  before:rotate-180 before:fill-base2;
+  }
+}

@@ -1,20 +1,26 @@
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import { Database, Facebook, Instagram, Youtube } from "lucide-react";
 import Image from "next/image";
 
 const links = [
   {
+    name: "Base",
+    image: <Database className="text-base1" />,
+    href: process.env.profbase,
+  },
+
+  {
     name: "Instagram",
-    image: <Instagram className="text-base2" />,
+    image: <Instagram className="text-base1" />,
     href: "https://www.instagram.com",
   },
   {
     name: "Facebook",
-    image: <Facebook className="text-base2" />,
+    image: <Facebook className="text-base1" />,
     href: "https://www.facebook.com",
   },
   {
     name: "YouTube",
-    image: <Youtube className="text-base2" />,
+    image: <Youtube className="text-base1" />,
     href: "https://www.youtube.com/channel/UCBahmcthWl_O9zsdiRtsWvA",
   },
 ];

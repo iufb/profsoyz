@@ -7,29 +7,39 @@ import Image from "next/image";
 
 export const Header = () => {
   return (
-    <header className="h-auto relative   bg-base2 flex flex-col gap-2   w-full  ">
-      <section className="h-16  mr-0  md:pr-10 flex gap-6 items-center md:static fixed bg-base4 z-[60] left-0 right-0 top-0  justify-end pt-3 pr-3">
+    <header className="h-auto relative   bg-base2 flex flex-col gap-2 headerBrush   w-full  ">
+      <section className="h-16  mr-0  md:pr-11 flex gap-3 lg:gap-6 items-center md:static fixed bg-base4 z-[60] left-0 right-0 top-0  justify-end pt-3 pr-3">
         <Links />
         <SocialLinks />
         <ChangeLocale />
         <BurgerMenu />
       </section>
-      <section className="min-h-[100px] md:min-h-[130px] grid-cols-1  before:w-full  before:h-2 md:before:h-5  relative before:z-50 before:absolute before:left-0 before:right-0 before:bg-navbar-texture before:bg-repeat-x before:-bottom-2  md:before:-bottom-5  before:rotate-180 before:fill-base2     md:px-20 px-5  grid mt-14 md:mt-0 md:grid-cols-[100px_1fr]  items-center gap-5">
+      <section className=" lg:w-[1200px] mx-auto min-h-52 grid-cols-1    md:px-5   lg:px-20 px-5  grid mt-14 md:mt-0 md:grid-cols-[160px_1fr]  lg:grid-cols-[180px_1fr]  items-center md:gap-5 lg:gap-0 ">
         <Image
           src={"/logo.svg"}
-          height={80}
-          width={80}
+          width={200}
+          height={200}
           alt="Logo"
-          className="justify-self-center w-[75px] h-[75px] md:w-[100px] md:h-[100px] "
+          className="justify-self-center w-[100px] md:w-full  "
         />
-        <Navbar />
+        <div className="flex flex-col gap-5">
+          <AnimatedText
+            className="z-10 text-xl text-base5  md:text-2xl"
+            text={[
+              "ПРОФСОЮЗ РАБОТНИКОВ ОБРАЗОВАНИЯ ГОРОДА АСТАНЫ",
+              "АСТАНА ҚАЛАСЫНЫҢ БІЛІМ БЕРУ ҚЫЗМЕТКЕРЛЕРІНІҢ КӘСІПОДАҒЫ",
+            ]}
+          />
+
+          <Navbar />
+        </div>
       </section>
     </header>
   );
 };
 const Links = () => {
   return (
-    <div className="text-base2 gap-10  hidden lg:flex">
+    <div className="text-base1 gap-4  hidden lg:flex">
       <div className="flex gap-4">
         <Phone />
         <a href="tel:+7 /7172/ 21-71-06">+7 /7172/ 21-71-06</a>

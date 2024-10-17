@@ -22,7 +22,7 @@ interface GalleryItem {
 function GalleryClient({ items }: GalleryProps) {
   const [selected, setSelected] = useState(0);
   return (
-    <div className="grid bg-base3 p-5 rounded-sm gap-4 justify-center w-full">
+    <div className="grid bg-base6 p-5 rounded-sm gap-4 justify-center w-full">
       <div className="grid flex-nowrap   grid-cols-gallery lg:grid-cols-4 gap-4 overflow-x-auto">
         {items.map((item, idx) => (
           <Dialog key={idx}>
