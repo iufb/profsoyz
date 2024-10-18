@@ -11,17 +11,17 @@ const links = [
   {
     name: "Instagram",
     image: <Instagram className="text-base1" />,
-    href: "https://www.instagram.com",
+    href: process.env.instagram,
   },
   {
     name: "Facebook",
     image: <Facebook className="text-base1" />,
-    href: "https://www.facebook.com",
+    href: process.env.facebook,
   },
   {
     name: "YouTube",
     image: <Youtube className="text-base1" />,
-    href: "https://www.youtube.com/channel/UCBahmcthWl_O9zsdiRtsWvA",
+    href: process.env.youtube,
   },
 ];
 export const SocialLinks = () => {

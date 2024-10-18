@@ -25,8 +25,8 @@ export const AnimatedText = ({ text, className }: AnimatedTextProps) => {
   return (
     <h1
       className={clsx(
-        "font-bold text-md md:justify-self-center  flex justify-center items-center   w-full   text-center  md:text-wrap text-white",
-        fade == "fade-in" ? "animate-fadeIn" : "animate-fadeOut",
+        "font-bold  text-md md:justify-self-center  flex justify-center items-center   w-full   text-center  md:text-wrap ",
+        fade == "fade-in" ? "animate-fadeIn " : "animate-fadeOut ",
         className,
       )}
     >

@@ -31,7 +31,7 @@ const config = {
         base2: "#0C356A",
         base3: "#FFF9C4",
         base4: "#0A1D56",
-        base5: "#FFF100",
+        base5: "#facc15",
         base6: "#B0DAFF",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

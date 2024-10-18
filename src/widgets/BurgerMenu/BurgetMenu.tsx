@@ -43,12 +43,12 @@ export const BurgerMenu = () => {
       <Button
         size={"icon"}
         variant={"ghost"}
-        className="flex text-base2  justify-center items-center md:hidden "
+        className="flex text-base1  justify-center items-center md:hidden "
         onClick={() => setOpen(true)}
       >
         <Menu size={32} />
       </Button>
-      <DrawerContent className="rounded-none  z-[70] bg-base1  border-none px-4 py-14">
+      <DrawerContent className="rounded-none  z-[70] bg-base4  border-none px-4 py-14">
         <div className="relative flex flex-col gap-3 text-xl text-white">
           <Button
             onClick={() => setOpen(false)}

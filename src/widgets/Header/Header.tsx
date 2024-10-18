@@ -24,7 +24,7 @@ export const Header = () => {
         />
         <div className="flex flex-col gap-5">
           <AnimatedText
-            className="z-10 text-xl text-base5  md:text-2xl"
+            className="z-10 text-xl   md:text-2xl text-base5 "
             text={[
               "ПРОФСОЮЗ РАБОТНИКОВ ОБРАЗОВАНИЯ ГОРОДА АСТАНЫ",
               "АСТАНА ҚАЛАСЫНЫҢ БІЛІМ БЕРУ ҚЫЗМЕТКЕРЛЕРІНІҢ КӘСІПОДАҒЫ",
