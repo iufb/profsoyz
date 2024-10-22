@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import plugin from "tailwindcss/plugin";
 const config = {
   darkMode: ["class"],
   content: [
@@ -19,6 +19,11 @@ const config = {
       },
     },
     extend: {
+      fontSize: {
+        "calc-text-xl": "clamp(0.8rem, 3vw, 1.25rem)",
+        "calc-text-2xl": "clamp(1rem, 3vw, 1.5rem)",
+        "calc-text-4xl": "clamp(1.5rem, 3vw, 2.25rem)",
+      },
       gridTemplateColumns: {
         gallery: "repeat(3, minmax(200px, 1fr))",
       },
@@ -98,7 +103,66 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(function ({ addBase, theme }) {
+      addBase({
+        ".quill-content .ql-size-normal": {
+          fontSize: theme("fontSize.calc-text-xl"),
+        },
+        ".quill-content .ql-size-large": {
+          fontSize: theme("fontSize.calc-text-2xl"),
+        },
+        ".quill-content .ql-size-huge": {
+          fontSize: theme("fontSize.calc-text-4xl"),
+          fontWeight: theme("fontWeight.medium"),
+        },
+        ".quill-content a": {
+          color: theme("colors.blue.500"),
+          textDecoration: "underline",
+        },
+        ".quill-content ul": {
+          listStyleType: "disc",
+          paddingLeft: theme("spacing.5"),
+        },
+        ".quill-content ol": {
+          listStyleType: "decimal",
+          paddingLeft: theme("spacing.5"),
+        },
+        ".quill-content blockquote": {
+          fontStyle: "italic",
+          borderLeftWidth: theme("borderWidth.4"),
+          borderLeftColor: theme("colors.gray.300"),
+          paddingLeft: theme("spacing.4"),
+          color: theme("colors.gray.700"),
+        },
+        ".quill-content img": {
+          maxWidth: "100%",
+          height: "auto",
+        },
+        ".quill-content code": {
+          fontFamily: theme("fontFamily.mono"),
+          backgroundColor: theme("colors.gray.100"),
+          padding: theme("spacing.1"),
+          borderRadius: theme("borderRadius.sm"),
+        },
+        ".quill-content pre": {
+          fontFamily: theme("fontFamily.mono"),
+          backgroundColor: theme("colors.gray.900"),
+          color: theme("colors.white"),
+          padding: theme("spacing.4"),
+          borderRadius: theme("borderRadius.lg"),
+          overflowX: "auto",
+        },
+        ".quill-content .ql-align-justify": {
+          textAlign: "justify",
+        },
+        ".quill-content .ql-align-center": {
+          textAlign: "center",
+        },
+      });
+    }),
+  ],
 } satisfies Config;
 
 export default config;
