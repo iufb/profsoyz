@@ -1,6 +1,6 @@
 import { getCookie } from "cookies-next";
 import { cookies } from "next/headers";
-const backendUrl = "http://193.193.228.6:8000";
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 interface CRequest {
   path: string;
