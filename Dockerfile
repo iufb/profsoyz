@@ -60,6 +60,17 @@ USER nextjs
 
 EXPOSE 3000
 
+ARG NEXT_PUBLIC_BACKEND_URL
+ARG profbase
+ARG youtube
+ARG instagram
+ARG facebook
+
+RUN echo "NEXT_PUBLIC_BACKEND_URL=\"$NEXT_PUBLIC_BACKEND_URL\"" > .env
+RUN echo "youtube=\"$youtube\"" > .env
+RUN echo "instagram=\"$instagram\"" > .env
+RUN echo "facebook=\"$facebook\"" > .env
+
 ENV PORT 3000
 
 # server.js is created by next build from the standalone output
