@@ -3,6 +3,7 @@ import { getNavbarPages } from "@/shared/api/pages";
 import { AnimatedText, Separator } from "@/shared/ui";
 import { BreadCrumbs, Header } from "@/widgets";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import { ReactNode } from "react";
 const getPages = async (locale: string) => {
   const pages = await getNavbarPages(locale);
@@ -37,11 +38,12 @@ export default async function Layout({
   params: { slug: string[]; locale: string };
 }) {
   const pages = await getPages(params.locale);
+  const t = await getTranslations();
   return (
     <section className="bg-base1 ">
-      <Header />
+      <Header locale={params.locale} />
       <VisitChecker />
-      <HeroSection params={params} />
+      {/* <HeroSection params={params} /> */}
       <main
         className={`max-w-[1400px]  min-h-[100svh] overflow-y-auto mx-auto px-5 xl:px-0   mb-10 ${params.slug[0] == "home" ? "mt-0" : "mt-5 md:mt-20 "} `}
       >
@@ -50,11 +52,11 @@ export default async function Layout({
           {children}
         </div>
       </main>
-      <footer className="w-full h-auto mt-16  bg-base2 before:w-full before:h-2 md:before:h-5  relative before:absolute before:left-0 before:right-0 before:bg-brush1 before:bg-repeat-x before:-top-2  md:before:-top-5 before:text-cyan-500 ">
+      <footer className="w-full h-auto mt-16  bg-base2  ">
         <div className=" max-w-[1200px] mx-auto px-10 py-5 ">
           <div className=" flex flex-col gap-5 md:flex-row md:justify-between md:items-center mb-3 md:mb-10">
             <div className="flex flex-col gap-4  text-white">
-              <h2 className="text-2xl">Наши контакты</h2>
+              <h2 className="text-2xl">{t("footer.title")}</h2>
               <div className="flex flex-col gap-3">
                 <div className="flex gap-4">
                   <Phone />
@@ -66,14 +68,14 @@ export default async function Layout({
                 </div>
                 <div className="flex gap-4">
                   <MapPin />
-                  <span>Астана, проспект Абая, 38, офис 401</span>
+                  <span>{t("footer.address")}</span>
                 </div>
               </div>
             </div>
           </div>
           <Separator />
           <span className="text-gray-600 block mt-14">
-            ©{new Date().getFullYear()} Все права защищены.
+            ©{new Date().getFullYear()} {t("footer.rights")}
           </span>
         </div>
       </footer>

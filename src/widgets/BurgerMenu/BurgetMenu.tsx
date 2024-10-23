@@ -58,9 +58,11 @@ export const BurgerMenu = () => {
           >
             <X />
           </Button>
-          {pages?.map((p) => (
-            <MenuLink key={p.id} page={p} locale={params.locale} />
-          ))}
+          {pages
+            ?.sort((a, b) => a.order - b.order)
+            .map((p) => (
+              <MenuLink key={p.id} page={p} locale={params.locale} />
+            ))}
         </div>
       </DrawerContent>
     </Drawer>

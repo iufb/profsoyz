@@ -68,9 +68,14 @@ export const Navbar = () => {
           />
         ) : pages ? (
           <section
-            className={`flex ${scrolled ? "text-base1 grid-cols-1 " : "text-white grid grid-cols-3"}      text-xl`}
+            className={`flex ${scrolled ? "text-base1 grid-cols-1 " : `text-white  grid grid-cols-3 2xl:flex 2xl:items-center  `}  text-xl`}
           >
-            <NavList locale={params.locale} pages={pages} />
+            <NavList
+              locale={params.locale}
+              pages={pages
+                .filter((page) => page.slug !== `/home`)
+                .sort((a, b) => a.order - b.order)}
+            />
           </section>
         ) : (
           <span>Навигация не найдена</span>
@@ -121,7 +126,7 @@ const NavList = ({
             "text-left pl-6 p-1 rounded-md hover:text-base1 hover:bg-base4",
             path == `/${locale}${page.slug}` && "font-bold",
           )}
-          href={`/${locale}/${page.slug}`}
+          href={`/${locale}${page.slug}`}
           key={page.id}
         >
           {page.title}

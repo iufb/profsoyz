@@ -57,35 +57,37 @@ export const PagesListTable = ({ ids }: PagesListTableProps) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map((page) => (
-          <TableRow key={page.slug}>
-            <TableCell className="font-medium">{page.ru}</TableCell>
-            <TableCell>{page.kz}</TableCell>
-            <TableCell>{page.slug}</TableCell>
-            <TableCell>{page.order}</TableCell>
-            <TableCell className="text-center">
-              {page.navigation_type == "group" && (
-                <Link
-                  href={`/${locale}/admin/pages/${encodeURIComponent(page.slug)}?ruPageId=${page.ruId}&kzPageId=${page.kzId}`}
-                >
-                  <Button size={"sm"}>{t("follow")}</Button>
-                </Link>
-              )}
-            </TableCell>
-            <TableCell className="text-center">
-              <EditPageDialog page={page} />
-            </TableCell>
-            <TableCell className="text-center">
-              {page.ruId && page.kzId && (
-                <DeletePageBtn
-                  queryKey={ids ? ["childPages"] : ["mainPages"]}
-                  ids={{ kz: page.kzId, ru: page.ruId }}
-                  name={locale == "ru" ? page.ru : page.kz}
-                />
-              )}
-            </TableCell>
-          </TableRow>
-        ))}
+        {data
+          .sort((a, b) => a.order - b.order)
+          .map((page) => (
+            <TableRow key={page.slug}>
+              <TableCell className="font-medium">{page.ru}</TableCell>
+              <TableCell>{page.kz}</TableCell>
+              <TableCell>{page.slug}</TableCell>
+              <TableCell>{page.order}</TableCell>
+              <TableCell className="text-center">
+                {page.navigation_type == "group" && (
+                  <Link
+                    href={`/${locale}/admin/pages/${encodeURIComponent(page.slug)}?ruPageId=${page.ruId}&kzPageId=${page.kzId}`}
+                  >
+                    <Button size={"sm"}>{t("follow")}</Button>
+                  </Link>
+                )}
+              </TableCell>
+              <TableCell className="text-center">
+                <EditPageDialog page={page} />
+              </TableCell>
+              <TableCell className="text-center">
+                {page.ruId && page.kzId && (
+                  <DeletePageBtn
+                    queryKey={ids ? ["childPages"] : ["mainPages"]}
+                    ids={{ kz: page.kzId, ru: page.ruId }}
+                    name={locale == "ru" ? page.ru : page.kz}
+                  />
+                )}
+              </TableCell>
+            </TableRow>
+          ))}
       </TableBody>
     </Table>
   );

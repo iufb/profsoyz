@@ -1,4 +1,9 @@
 {
+  "footer": {
+    "title": "Наши контакты",
+    "address": "Астана, проспект Абая, 38, офис 401",
+    "rights": "Все права защищены."
+  },
   "admin": {
     "main": {
       "title": "Список посещений сайта",
@@ -22,10 +27,22 @@
   "sidebar": {
     "logout": "Выйти",
     "links": {
-      "home": { "label": "Главная", "href": "/admin" },
-      "settings": { "label": "Настройки", "href": "/admin/settings" },
-      "pages": { "label": "Страницы", "href": "/admin/pages" },
-      "templates": { "label": "Шаблоны", "href": "/admin/pages/templates" }
+      "home": {
+        "label": "Главная",
+        "href": "/admin"
+      },
+      "settings": {
+        "label": "Настройки",
+        "href": "/admin/settings"
+      },
+      "pages": {
+        "label": "Страницы",
+        "href": "/admin/pages"
+      },
+      "templates": {
+        "label": "Шаблоны",
+        "href": "/admin/pages/templates"
+      }
     }
   },
   "burger": {
