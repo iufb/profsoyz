@@ -1,1 +1,1 @@
-export const backendImageUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL}/media/`;
+export const backendImageUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL}/media`;
