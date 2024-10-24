@@ -8,16 +8,8 @@ const nextConfig = {
     formats: ["image/webp"],
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "77.243.80.138",
-      },
-      {
-        protocol: "http",
-        hostname: "yekinsgnhome.ddns.net",
-      },
-      {
-        protocol: "http",
-        hostname: "193.193.228.6",
+        protocol: "https",
+        hostname: "back.prof.foxminded.space",
       },
     ],
   },
