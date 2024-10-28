@@ -40,8 +40,8 @@ function ImageLinksClient({ title, items }: LinksProps) {
             <Item key={idx} li={li} idx={idx} />
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious>a</CarouselPrevious>
+        <CarouselNext>a</CarouselNext>
       </Carousel>
     </section>
   );
