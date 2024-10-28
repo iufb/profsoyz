@@ -10,7 +10,9 @@ import GalleryEditModal from "./Gallery/GalleryEditModal";
 import Info from "./Info/Info";
 import InfoEditModal from "./Info/InfoEditModal";
 import Links from "./Links/Links";
+import ImageLinks from "./ImageLinks/ImageLinksServer";
 import LinksEditModal from "@/widgets/Links/LinksEditModal";
+import ImageLinksEditModal from "@/widgets/ImageLinks/ImageLinksEditModal";
 import List from "./List/ListServer";
 import ListEditModal from "./List/ListEditModal";
 import Text from "./Text/Text";
@@ -46,6 +48,7 @@ export const editModalList = [
   ListEditModal,
   TextEditModal,
   LinksEditModal,
+  ImageLinksEditModal,
   InfoEditModal,
   AccordionEditModal,
   GalleryEditModal,
@@ -56,6 +59,7 @@ export const widgetsList = [
   List,
   Text,
   Links,
+  ImageLinks,
   Info,
   Accordion,
   Gallery,

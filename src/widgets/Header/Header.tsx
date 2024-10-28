@@ -14,7 +14,7 @@ export const Header = ({ locale }: { locale: string }) => {
         <SocialLinks /> <ChangeLocale />
         <BurgerMenu />
       </section>
-      <section className=" lg:w-[1320px] mx-auto min-h-52 grid-cols-1    md:px-5   lg:px-20 px-5  grid mt-14 md:mt-0 md:grid-cols-[160px_1fr]  lg:grid-cols-[180px_1fr]  items-center md:gap-5 lg:gap-0 ">
+      <section className=" w-fit xl:w-[1320px] mx-auto min-h-52 grid-cols-1    md:px-5   lg:px-20 px-5  grid mt-14 md:mt-0 md:grid-cols-[160px_1fr]  lg:grid-cols-[180px_1fr]  items-center md:gap-5 lg:gap-0 ">
         <Link href={`/${locale}/home`} className="justify-self-center">
           <Image
             src={"/logo.svg"}
@@ -24,7 +24,7 @@ export const Header = ({ locale }: { locale: string }) => {
             className=" w-[100px] md:w-full  "
           />
         </Link>
-        <div className="flex flex-col gap-5">
+        <div className=" flex flex-col gap-5">
           <AnimatedText
             className="z-10 text-xl   md:text-2xl text-base5 "
             text={[

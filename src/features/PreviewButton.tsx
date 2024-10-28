@@ -63,10 +63,10 @@ export const PreviewButton = ({ modal }: PreviewButtonProps) => {
           </DialogDescription>
         </DialogHeader>
         <div className="max-w-[1200px] w-full mx-auto">
-          {getWidgetByName(
-            modal,
-            JSON.parse(mockProps[modal as keyof typeof mockProps].options),
-          )}
+          {/* {getWidgetByName( */}
+          {/*   modal, */}
+          {/*   JSON.parse(mockProps[modal as keyof typeof mockProps].options), */}
+          {/* )} */}
         </div>
       </DialogContent>
     </Dialog>
