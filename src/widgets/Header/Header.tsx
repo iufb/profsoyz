@@ -8,13 +8,13 @@ import Link from "next/link";
 
 export const Header = ({ locale }: { locale: string }) => {
   return (
-    <header className="h-auto relative   bg-base2 flex flex-col gap-2    w-full  ">
+    <header className="h-auto relative overflow-x-hidden   bg-base2 flex flex-col gap-2    w-full  ">
       <section className="h-16  mr-0  md:pr-11 flex gap-3 lg:gap-6 items-center md:static fixed bg-base4 z-[60] left-0 right-0 top-0  justify-end pt-3 pr-3">
         <Links />
         <SocialLinks /> <ChangeLocale />
         <BurgerMenu />
       </section>
-      <section className=" w-fit xl:w-[1320px] mx-auto min-h-52 grid-cols-1    md:px-5   lg:px-20 px-5  grid mt-14 md:mt-0 md:grid-cols-[160px_1fr]  lg:grid-cols-[180px_1fr]  items-center md:gap-5 lg:gap-0 ">
+      <section className=" w-fit  xl:w-[1320px] mx-auto min-h-52 grid-cols-1    md:px-5   lg:px-20 px-5  grid mt-14 md:mt-0 md:grid-cols-[160px_1fr]  lg:grid-cols-[180px_1fr]  items-center md:gap-5 lg:gap-0 ">
         <Link href={`/${locale}/home`} className="justify-self-center">
           <Image
             src={"/logo.svg"}

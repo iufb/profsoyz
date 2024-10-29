@@ -26,9 +26,9 @@ const links = [
 ];
 export const SocialLinks = () => {
   return (
-    <ul className="flex gap-4">
+    <ul className="flex items-center gap-4">
       {links.map((link, idx) => (
-        <li key={idx}>
+        <li key={idx} className="grid place-items-center">
           <a href={link.href} target="_blank">
             {link.image}
           </a>

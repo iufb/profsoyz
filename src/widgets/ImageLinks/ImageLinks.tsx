@@ -33,7 +33,7 @@ function ImageLinksClient({ title, items }: LinksProps) {
             delay: 5000,
           }),
         ]}
-        className="w-full justify-self-center max-w-lg lg:max-w-5xl"
+        className="w-full justify-self-center max-w-[20rem]  md:max-w-3xl lg:max-w-4xl xl:max-w-5xl"
       >
         <CarouselContent className="">
           {items.map((li, idx) => (
@@ -48,7 +48,7 @@ function ImageLinksClient({ title, items }: LinksProps) {
 }
 const Item = ({ li, idx }: { li: Link; idx: number }) => {
   return (
-    <CarouselItem className=" basis-[100%] flex items-center justify-center     lg:basis-1/3">
+    <CarouselItem className="basis-[100%] flex items-center justify-center     lg:basis-1/3">
       <a
         href={li.link}
         target="_blank"

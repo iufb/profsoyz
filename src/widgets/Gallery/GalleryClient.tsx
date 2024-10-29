@@ -42,7 +42,7 @@ function GalleryClient({ items }: GalleryProps) {
                 />
               </div>
             </DialogTrigger>
-            <DialogContent className=" bg-base4 rounded-md min-w-[calc(100vw-100px)] h-auto  ">
+            <DialogContent className=" bg-base1 rounded-md min-w-[calc(100vw-100px)] h-auto  ">
               <DialogHeader>
                 <DialogTitle className="opacity-0">Gallery modal</DialogTitle>
                 <DialogDescription className="opacity-0">

@@ -23,7 +23,9 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { slug, locale } = params;
   const page = (await getPageBySlug(`/${slug.join("/")}`, locale))[0];
-
+  if (!page) {
+    throw new Error();
+  }
   return {
     title: !page
       ? "Профсоюз работников образования «Әділет» г. Нур-Султан"

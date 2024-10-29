@@ -12,10 +12,11 @@ import { useTranslations } from "next-intl";
 interface PreviewButtonProps {
   modal: string;
 }
+
 const mockProps = {
   Info: {
     options:
-      '{"title":"We prepare today’s learners for tomorrow’s world of work","content":"Our mission is to provide people with access to digitally-enhanced capacity development services to successfully manage their future of work transitions. From our sustainability-minded courses to our SDG-informed Masters, we always put our participants first.","items":[{"title":"Hundreds of courses","content":"The Centre leverages global alliances and partnerships to deliver training activities.  Courses cover topics like employment promotion, international labour standards, social protection, social dialogue, innovation, gender equality and diversity, sustainable development, and the future of work.  We offer academies, standard courses, free self-paced courses, and Masters. You can also search by topic, language, and mode (online, face-to-face, or blended).","image":"uploads/20240725110251.jpeg","imagePosition":"right","linkText":"See more","savedTemplate":"Main-carousel","templateWidgets":"[\\"Text\\",\\"Carousel\\"]","href":"/template-1721905318844","templateSlug":"/template-1721905318844","templateId":"633*634"}]}',
+      '{"title":"We prepare today’s learners for tomorrow’s world of work","content":"Our mission is to provide people with access to digitally-enhanced capacity development services to successfully manage their future of work transitions. From our sustainability-minded courses to our SDG-informed Masters, we always put our participants first.","items":[{"title":"Hundreds of courses","content":"The Centre leverages global alliances and partnerships to deliver training activities.  Courses cover topics like employment promotion, international labour standards, social protection, social dialogue, innovation, gender equality and diversity, sustainable development, and the future of work.  We offer academies, standard courses, free self-paced courses, and Masters. You can also search by topic, language, and mode (online, face-to-face, or blended).","image":"uploads/20240725110251.jpeg","imagePosition":"right","linkText":"See more"}]}',
   },
   Links: {
     options:
@@ -23,29 +24,33 @@ const mockProps = {
   },
   Cards: {
     options:
-      '{"variant":"horizontal","title":"123","items":[{"title":"123","content":"1test223","image":"uploads/20240729115725.webp","href":"","templateSlug":"/template-1722254220633","templateId":"679*680"},{"title":"123","content":"123","image":"uploads/20240730103228.jpeg","href":"","templateSlug":"/template-1722335539079","templateId":"683*684"}]}',
+      '{"variant":"base","title":"123","items":[{"title":"123","content":"1test223","image":"uploads/20240729115725.webp"},{"title":"123","content":"123","image":"uploads/20240730103228.jpeg"}]}',
   },
   Carousel: {
     options:
-      '{"items":[{"content":"123","image":"","savedTemplate":"cards-carousel","templateWidgets":"[\\"Cards\\",\\"Carousel\\"]","href":"/template-1722245789831","templateSlug":"/template-1722245789831","templateId":"657*658"}]}',
+      '{"items":[{"content":"Заголовок","image":"uploads/20240730103228.jpeg"}]}',
   },
   Text: {
     options:
-      '{"heading":"123","content":"<p>321</p>","items":[],"language_key":"ru","navigation_id":635}',
+      '{"heading":"Заголовок","content":"<p>Контент</p>","items":[],"language_key":"ru","navigation_id":635}',
   },
   Accordion: {
-    options:
-      '{"items":[{"question":"1","answer":"321","href":"","templateId":"1722249090179"},{"question":"2","answer":"12","href":"","templateId":"1722252685064"},{"question":"3","answer":"123","href":"","templateId":"1722320426608"}]}',
+    options: '{"items":[{"question":"Вопрос","answer":"ответ"}]}',
   },
   List: {
     options:
-      '{"items":[{"content":"1","file":"uploads/20240729111110.pdf","href":"","templateId":"1722251456243"},{"content":"2","file":"uploads/20240729111459.pdf","href":"","templateId":"1722251686088"}]}',
+      '{"items":[{"content":"Контент","file":"uploads/20240729111110.pdf","href":"","templateId":"1722251456243"},{"content":"Контент","file":"uploads/20240729111459.pdf","href":"","templateId":"1722251686088"}]}',
   },
   Gallery: {
     options:
       '{"items":[{"image":"uploads/20240730103121.jpeg","href":"","templateId":"1722335477257"},{"image":"uploads/20240730103159.jpeg","href":"","templateId":"1722335515681"},{"image":"uploads/20240730105253.jpeg","href":"","templateId":"1722336769691"},{"image":"uploads/20240730110637.webp","href":"","templateId":"1722337591559"},{"image":"uploads/20240730111652.webp","href":"","templateId":"1722338200944"},{"image":"uploads/20240730111740.jpeg","href":"","templateId":"1722338252393"},{"image":"uploads/20240730111740.webp","href":"","templateId":"1722338256197"}]}',
   },
+  ImageLinks: {
+    options:
+      '{"variant":"Полезные ссылки","title":"Полезные ссылки","items":[{"name":"123","link":"https://youtube.com","image":"uploads/20241024093146_GZ76ygM.jpg","href":"","templateId":"1729759966319"},{"name":"222","link":"https://google.com","image":"uploads/20241024093146_98hUt7U.jpg","href":"","templateId":"1729760982134"},{"name":"55","link":"https://yandex.ru","image":"uploads/20241024093146_vqlmjoN.jpg","href":"","templateId":"1729761011459"},{"name":"12","link":"123","image":"uploads/20241024102635.jpg","href":"","templateId":"1729765580460"}]}',
+  },
 };
+
 export const PreviewButton = ({ modal }: PreviewButtonProps) => {
   const t = useTranslations("pages.pageEditorContent");
   return (
@@ -63,10 +68,10 @@ export const PreviewButton = ({ modal }: PreviewButtonProps) => {
           </DialogDescription>
         </DialogHeader>
         <div className="max-w-[1200px] w-full mx-auto">
-          {/* {getWidgetByName( */}
-          {/*   modal, */}
-          {/*   JSON.parse(mockProps[modal as keyof typeof mockProps].options), */}
-          {/* )} */}
+          {getWidgetByName(
+            modal,
+            JSON.parse(mockProps[modal as keyof typeof mockProps].options),
+          )}
         </div>
       </DialogContent>
     </Dialog>

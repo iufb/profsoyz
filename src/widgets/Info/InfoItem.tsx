@@ -37,7 +37,7 @@ export const InfoItem = ({
         {href && (
           <Link
             className="text-lg text-base4 border border-base4 w-fit px-2 py-1 rounded-md "
-            href={`/${locale}/${href}`}
+            href={`/${locale}${href}`}
           >
             {linkText}
           </Link>

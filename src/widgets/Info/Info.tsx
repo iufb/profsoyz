@@ -1,9 +1,4 @@
-import { backendImageUrl } from "@/shared/lib/constants";
-import { Button } from "@/shared/ui";
 import { InfoItem } from "@/widgets/Info/InfoItem";
-import clsx from "clsx";
-import Image from "next/image";
-import Link from "next/link";
 
 interface InfoProps {
   title: string;
