@@ -43,7 +43,9 @@ export const WidgetView = ({
           {t("triggerTitle")} {widgetName}
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-sm sm:max-w-3xl">{content}</DialogContent>
+      <DialogContent className="max-w-sm  sm:max-w-3xl">
+        {content}
+      </DialogContent>
     </Dialog>
   );
 };

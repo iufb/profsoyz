@@ -118,7 +118,7 @@ const ModalContent = ({
           }}
         />
       )}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 ">
         {mainInputs.map((input, idx) => (
           <Fragment key={idx}>
             {getInput(
@@ -135,7 +135,7 @@ const ModalContent = ({
           <Button onClick={addItem} className="w-full">
             {t("add")}
           </Button>
-          <section className="max-h-[460px] flex flex-col gap-10 overflow-y-auto w-full  rounded-md border p-4 ">
+          <section className="h-full flex flex-col gap-10  w-full  rounded-md border p-4 ">
             {Object.keys(items).map((key, idx) => (
               <EditItem
                 inputs={itemInputs}
