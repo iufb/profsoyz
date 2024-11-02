@@ -1,7 +1,9 @@
 import { BaseEditModalProps } from "@/shared/lib/types";
 import { EditModal } from "@/widgets/EditModal/EditModal";
-const mainKeys = ["variant", "titleRu", "titleKz"];
+const mainKeys = ["titleRu", "titleKz", "variant"];
 const mainInputs = [
+  { label: "Заголовок RU", value: "text" },
+  { label: "Заголовок KZ", value: "text" },
   {
     value: "select",
     select: {
@@ -12,8 +14,6 @@ const mainInputs = [
       ],
     },
   },
-  { label: "Заголовок RU", value: "text" },
-  { label: "Заголовок KZ", value: "text" },
 ];
 
 const itemKeys = ["titleRu", "titleKz", "contentRu", "contentKz", "image"];

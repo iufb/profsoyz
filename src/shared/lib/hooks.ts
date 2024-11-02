@@ -98,7 +98,7 @@ export function useTemplateWidget<StateProps>({
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const {
-    mutate: createCardsWidget,
+    mutate: createWidgetMutation,
     isPending: createIsPending,
     error,
   } = useMutation({
@@ -339,7 +339,7 @@ export function useTemplateWidget<StateProps>({
         widgetStateFields,
       );
 
-      createCardsWidget({
+      createWidgetMutation({
         widget_type: widgetName,
         order,
         options: JSON.stringify({
@@ -351,12 +351,14 @@ export function useTemplateWidget<StateProps>({
         language_key: "ru",
         navigation_id: +ruPageId,
       });
-      createCardsWidget({
+      createWidgetMutation({
         widget_type: widgetName,
         order,
         options: JSON.stringify({
-          mainPropsKz,
+          ...mainPropsKz,
           items: KzItems,
+          language_key: "kz",
+          navigation_id: +kzPageId,
         }),
         language_key: "kz",
         navigation_id: +kzPageId,
