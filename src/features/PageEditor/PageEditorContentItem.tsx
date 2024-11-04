@@ -1,3 +1,4 @@
+import { ruWidgetsList } from "@/widgets";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { ReactNode } from "react";
@@ -39,7 +40,7 @@ export const PageEditorContentItem = ({
         {...attributes}
         {...listeners}
       >
-        {name}
+        {ruWidgetsList[name as keyof typeof ruWidgetsList]}
       </span>
       <section className="flex gap-2">
         {editContentBtn}

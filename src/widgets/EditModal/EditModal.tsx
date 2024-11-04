@@ -118,7 +118,7 @@ const ModalContent = ({
           }}
         />
       )}
-      <div className="flex flex-col gap-2 ">
+      <div className="flex flex-col gap-2  ">
         {mainInputs.map((input, idx) => (
           <Fragment key={idx}>
             {getInput(

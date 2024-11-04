@@ -18,6 +18,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/shared/ui";
+import { ruWidgetsList } from "@/widgets";
 import { Settings, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
@@ -43,14 +44,15 @@ export const EditWidgetContentDialog = ({
       <DialogContent
         alertBtn={true}
         onInteractOutside={(e) => e.preventDefault()}
-        className="max-w-sm sm:max-w-full "
+        className="max-w-sm sm:max-w-full h-screen "
       >
         <DialogHeader>
           <DialogTitle className="hidden">
-            {t("edit.title")} {name}
+            {t("edit.title")}{" "}
+            {ruWidgetsList[name as keyof typeof ruWidgetsList]}
           </DialogTitle>
           <DialogDescription className="hidden">
-            {t("edit.desc")} {name}
+            {t("edit.desc")} {ruWidgetsList[name as keyof typeof ruWidgetsList]}
           </DialogDescription>
         </DialogHeader>
         <CloseButton close={() => setOpen(false)} />

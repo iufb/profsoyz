@@ -7,7 +7,7 @@ import {
   getWidgets,
 } from "@/shared/api/widgets";
 import { queryClient } from "@/shared/lib/client";
-import { widgetsList, getEditModal } from "@/widgets";
+import { widgetsList, getEditModal, ruWidgetsList } from "@/widgets";
 import { Langs } from "@/shared/lib/types";
 import {
   Button,
@@ -248,7 +248,7 @@ export const PageEditorContent = ({
                   ]);
               }}
             >
-              {displayName}
+              {ruWidgetsList[displayName as keyof typeof ruWidgetsList]}
             </span>
           ))}
         </section>

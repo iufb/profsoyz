@@ -64,6 +64,17 @@ export const widgetsList = [
   Accordion,
   Gallery,
 ];
+export const ruWidgetsList = {
+  Cards: "Карточки",
+  Carousel: "Карусель",
+  List: "Список документов",
+  Text: "Текстовый виджет",
+  Links: "Cсылки",
+  ImageLinks: "Ссылки-картинки",
+  Info: "Инфо-виджет",
+  Accordion: "Аккордеон",
+  Gallery: "Галлерея",
+};
 export const getWidgetByName = (name: string, props: any) => {
   const widget = widgetsList.find((w, idx) => {
     return w.displayName == name;

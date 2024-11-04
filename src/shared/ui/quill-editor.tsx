@@ -26,11 +26,11 @@ interface QuillEditor {
 }
 const QuillEditor = ({ value, onChange, label }: QuillEditor) => {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 ">
       <Label>{label}</Label>
       <ReactQuill
         value={value}
-        className="overflow-y-auto "
+        className="overflow-y-auto  "
         onChange={onChange}
         modules={quillModules}
         theme="snow"
