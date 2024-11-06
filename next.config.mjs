@@ -9,7 +9,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "back.prof.foxminded.space",
+        hostname: "back.bilimkasipodaq.kz",
       },
     ],
   },
