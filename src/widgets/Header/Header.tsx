@@ -14,7 +14,7 @@ export const Header = ({ locale }: { locale: string }) => {
         <SocialLinks /> <ChangeLocale />
         <BurgerMenu />
       </section>
-      <section className=" w-fit  xl:w-[1400px] mx-auto min-h-52 grid-cols-1    md:px-5   lg:px-10 px-5  grid mt-14 md:mt-0 md:grid-cols-[160px_1fr]  lg:grid-cols-[180px_1fr]  items-center md:gap-5 lg:gap-0 ">
+      <section className=" w-fit  xl:w-[1400px] mx-auto min-h-52 grid-cols-1    md:px-5   lg:px-0 px-5  grid mt-14 md:mt-0 md:grid-cols-[160px_1fr]  lg:grid-cols-[180px_1fr]  items-center md:gap-5 lg:gap-0 ">
         <Link href={`/${locale}/home`} className="justify-self-center">
           <Image
             src={"/logo.svg"}
