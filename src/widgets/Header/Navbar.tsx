@@ -68,7 +68,7 @@ export const Navbar = () => {
           />
         ) : pages ? (
           <section
-            className={`flex ${scrolled ? "text-base1 grid-cols-1 " : `text-white  grid grid-cols-3 2xl:flex 2xl:items-center  `}  text-xl`}
+            className={`flex ${scrolled ? "text-base1 grid-cols-1 " : `text-white  grid grid-cols-3 2xl:flex 2xl:items-center  `}  text-md`}
           >
             <NavList
               locale={params.locale}
@@ -96,7 +96,7 @@ const HoverMenu = ({
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="flex outline-none transition-colors hover:bg-base1 rounded-md py-1 px-5   items-end h-full">
-          <span className="text-xl">...</span>
+          <span className="text-md">...</span>
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
