@@ -55,13 +55,13 @@ export const Navbar = () => {
   return (
     <nav
       className={clsx(
-        "h-[54px]   md:z-50 md:top-0 hidden md:flex justify-center items-center    ",
+        "h-[54px]   md:z-50 md:top-0 hidden lg:flex justify-center items-center    ",
         scrolled
           ? "md:fixed md:left-0 md:right-0 md:top-0 shadow-xl bg-base4 "
           : "md:static  bg-inherit",
       )}
     >
-      <ul className="max-w-[1200px]  overflow-hidden  mx-auto gap-5 items-center justify-center flex ">
+      <ul className="max-w-[1400px]  overflow-hidden  mx-auto gap-5 items-center justify-center flex ">
         {isFetching ? (
           <Skeleton
             className={`w-[500px] ${scrolled ? "bg-slate-100" : "bg-base6"} h-10`}
