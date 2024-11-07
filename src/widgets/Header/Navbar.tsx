@@ -32,7 +32,7 @@ export const Navbar = () => {
     },
     refetchOnWindowFocus: false,
   });
-  console.log(3);
+  console.log(4);
 
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
