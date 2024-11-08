@@ -11,6 +11,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "back.bilimkasipodaq.kz",
       },
+      {
+        protocol: "http",
+        hostname: "77.246.247.118",
+      },
     ],
   },
   logging: {
