@@ -33,7 +33,7 @@ export const Card = ({
             "w-full grid grid-cols-1 grid-rows-[1fr,auto]  md:grid-cols-[1fr_2fr] gap-2 h-[200px]  after:bottom-0 after:top-0   after:left-0 after:-right-[6px]  ",
           base: "flex w-full  h-[308px] flex-col after:-bottom-[6px] after:top-0 after:left-0 after:right-0  ",
         }[variant],
-        "after:bg-base4 after:-z-10 after:rounded-md after:absolute text-base2  bg-base6 p-4 rounded-md relative min-h-[300px] ",
+        "after:bg-base4 after:-z-10 after:rounded-md after:absolute text-base2  bg-base6 p-2 rounded-md relative min-h-[400px] ",
       )}
     >
       <div
