@@ -56,8 +56,12 @@ export const Card = ({
       </div>
       <div>
         <span className="text-sm">{date}</span>
-        <h2 className="font-bold text-xl">{title}</h2>
-        <p>{content.length > 90 ? `${content.slice(0, 90)}...` : content}</p>
+        <h2 className="font-bold text-md">
+          {title.length > 50 ? `${title.slice(0, 50)}...` : title}
+        </h2>
+        <p className="text-md">
+          {content.length > 90 ? `${content.slice(0, 90)}...` : content}
+        </p>
       </div>
     </Comp>
   );
