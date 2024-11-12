@@ -22,7 +22,7 @@ interface FileUploaderProps {
   writeChanges: (val: {
     id?: string;
     field: string;
-    value: File | string | Blob;
+    value: File | string;
   }) => void;
 }
 export const FileUploader = ({
