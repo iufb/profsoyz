@@ -54,29 +54,31 @@ export const FileUploader = ({
           Посмотреть прикрепленный файл
         </a>
       )}
-      <Dialog open={open} onOpenChange={() => setOpen(!open)}>
-        <DialogTrigger className="text-left">Редактировать</DialogTrigger>
-        <DialogContent className="min-w-full min-h-[800px] max-h-screen">
-          <div className=" flex items-center justify-center">
-            <ImageCropper
-              imageSrc={`${backendImageUrl}${file}`}
-              onSave={async (cropImage) => {
-                const file = await cropImage();
-                if (!file) {
-                  console.log("No Cropped File");
-                  return;
-                }
-                writeChanges({ id, field, value: file });
-                const image = await fileToImage(file);
-                setImage(image.src);
-                setOpen(false);
-              }}
-            />
-          </div>
+      {image && (
+        <Dialog open={open} onOpenChange={() => setOpen(!open)}>
+          <DialogTrigger className="text-left">Редактировать</DialogTrigger>
+          <DialogContent className="min-w-full min-h-[800px] max-h-screen">
+            <div className=" flex items-center justify-center">
+              <ImageCropper
+                imageSrc={image as string}
+                onSave={async (cropImage) => {
+                  const file = await cropImage();
+                  if (!file) {
+                    console.log("No Cropped File");
+                    return;
+                  }
+                  writeChanges({ id, field, value: file });
+                  const image = await fileToImage(file);
+                  setImage(image.src);
+                  setOpen(false);
+                }}
+              />
+            </div>
 
-          <DialogFooter></DialogFooter>
-        </DialogContent>
-      </Dialog>
+            <DialogFooter></DialogFooter>
+          </DialogContent>
+        </Dialog>
+      )}
       <Input
         type="file"
         label={label}
@@ -103,11 +105,8 @@ function ImageCropper({
   imageSrc: string;
   onSave: (cropImage: () => Promise<File | undefined>) => void;
 }) {
-  const imgRef = useRef<HTMLImageElement | null>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
 
-  const onImageLoad = useCallback((img: HTMLImageElement) => {
-    imgRef.current = img;
-  }, []);
   const [crop, setCrop] = useState<Crop>({
     unit: "px", // Can be 'px' or '%'
     x: 0,
@@ -132,46 +131,47 @@ function ImageCropper({
     });
   };
   const cropImage = async () => {
-    const image = await loadImage(imageSrc);
-    const canvas = document.createElement("canvas");
-    const scaleX = image.naturalWidth / image.width;
-    const scaleY = image.naturalHeight / image.height;
-    console.log(scaleX, scaleY);
+    if (imgRef.current) {
+      const image = await loadImage(imageSrc);
+      const canvas = document.createElement("canvas");
+      const scaleX = image.naturalWidth / imgRef.current.width;
+      const scaleY = image.naturalHeight / imgRef.current.height;
 
-    canvas.width = crop.width;
-    canvas.height = crop.height;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) {
-      console.log("No canvas context");
-      return;
+      canvas.width = crop.width;
+      canvas.height = crop.height;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        console.log("No canvas context");
+        return;
+      }
+      const pixelRatio = window.devicePixelRatio;
+      canvas.width = crop.width * pixelRatio;
+      canvas.height = crop.height * pixelRatio;
+      ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      ctx.imageSmoothingQuality = "high";
+
+      ctx.drawImage(
+        image,
+        crop.x * scaleX,
+        crop.y * scaleY,
+        crop.width * scaleX,
+        crop.height * scaleY,
+        0,
+        0,
+        crop.width,
+        crop.height,
+      );
+      return canvasToFile(canvas, "croppedImage");
     }
-    const pixelRatio = window.devicePixelRatio;
-    canvas.width = crop.width * pixelRatio;
-    canvas.height = crop.height * pixelRatio;
-    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-    ctx.imageSmoothingQuality = "high";
-
-    ctx.drawImage(
-      image,
-      crop.x * scaleX,
-      crop.y * scaleY,
-      crop.width * scaleX,
-      crop.height * scaleY,
-      0,
-      0,
-      crop.width,
-      crop.height,
-    );
-    return canvasToFile(canvas, "croppedImage");
   };
   return (
-    <div>
+    <div className="flex flex-col gap-5">
       <ReactCrop
         crop={crop}
         onChange={(newCrop: Crop) => setCrop(newCrop)}
         locked={true} // Fixes the crop area
       >
-        <img src={imageSrc} width={700} className="h-auto" />
+        <img ref={imgRef} src={imageSrc} width={700} className="h-auto" />
       </ReactCrop>
       <Button
         onClick={() => {
