@@ -16,7 +16,7 @@ export const EditItemWrapper = ({
         <h2 className="font-bold text-xl ">{title}</h2>
         <div className="flex gap-2">{buttons}</div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">{children}</div>
+      <div className="grid grid-cols-1  gap-4">{children}</div>
     </div>
   );
 };

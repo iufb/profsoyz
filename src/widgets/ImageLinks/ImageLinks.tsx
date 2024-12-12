@@ -56,7 +56,7 @@ const Item = ({ li, idx }: { li: Link; idx: number }) => {
       >
         <img
           src={`${backendImageUrl}${li.image}`}
-          className="max-w-[280px]  h-auto"
+          className="max-w-[120px]  h-auto"
           alt={li.name ?? `carousel item ${idx}`}
         />
         {/* <span className="text-center block ">{li.name}</span> */}

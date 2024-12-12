@@ -13,11 +13,11 @@ const itemInputs = [
   },
   {
     label: "Ответ RU",
-    value: "text",
+    value: "quill",
   },
   {
     label: "Ответ KZ",
-    value: "text",
+    value: "quill",
   },
 ];
 function AccordionEditModal(props: BaseEditModalProps) {

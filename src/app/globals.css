@@ -66,27 +66,6 @@
   }
 }
 
-/* Custom scrollbar for WebKit browsers */
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: #e0e0e0; /* Light gray background */
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-base2;
-  border-radius: 10px;
-  border: 2px solid #e0e0e0; /* Adds padding around thumb */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* Darker gray on hover */
-}
-
 /* Custom scrollbar for Firefox */
 
 body {
@@ -112,4 +91,46 @@ body {
   .footerBrush {
     @apply before:w-full before:h-2 md:before:h-5  relative before:absolute before:left-0 before:right-0 before:bg-brush1 before:bg-repeat-x before:-top-2  md:before:-top-5 before:text-cyan-500;
   }
+}
+@layer utilities {
+  /* Scrollbar base styles */
+  .scrollbar {
+    scrollbar-width: thin; /* For Firefox */
+    &::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+    &::-webkit-scrollbar-track {
+      @apply bg-gray-300 rounded-lg; /* Light gray track with rounded corners */
+    }
+    &::-webkit-scrollbar-thumb {
+      @apply bg-base2 rounded-lg border-2 border-gray-300; /* Thumb styles */
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      @apply bg-gray-600; /* Darker gray on hover */
+    }
+  }
+}
+.ql-editor {
+  min-height: 200px;
+}
+/* Custom scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e0e0e0; /* Light gray background */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-base2;
+  border-radius: 10px;
+  border: 2px solid #e0e0e0; /* Adds padding around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker gray on hover */
 }

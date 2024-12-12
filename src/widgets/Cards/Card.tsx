@@ -1,6 +1,7 @@
 "use client";
 import { backendImageUrl } from "@/shared/lib/constants";
 import { cn } from "@/shared/lib/utils";
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -56,13 +57,27 @@ export const Card = ({
       </div>
       <div>
         <span className="text-sm">{date}</span>
-        <h2 className="font-bold text-center text-md">
+        <h2
+          className={clsx(
+            "font-bold text-center text-md",
+            variant == "horizontal" && "text-lg md:text-2xl",
+          )}
+        >
           {title.length > 70 ? `${title.slice(0, 70)}...` : title}
         </h2>
         {variant == "horizontal" && (
-          <p className="text-md hidden md:block">
-            {content.length > 410 ? `${content.slice(0, 410)}...` : content}
-          </p>
+          <div
+            className={clsx(
+              "quill-content",
+              "overflow-x-auto overflow-y-hidden p-10",
+            )}
+            dangerouslySetInnerHTML={{
+              __html: content
+                .replace(/&lt;/g, "<")
+                .replace(/&gt;/g, ">")
+                .replace(/&amp;nbsp;/g, " "),
+            }}
+          />
         )}
       </div>
     </Comp>

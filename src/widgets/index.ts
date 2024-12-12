@@ -1,7 +1,7 @@
 import Accordion from "./Accordion/Accordion";
 export { VisitBarChart } from "./VisitBarChart";
 import AccordionEditModal from "./Accordion/AccordionEditModal";
-import Cards from "./Cards/Cards";
+import Cards from "./Cards/CardsServer";
 import CardsEditModal from "./Cards/CardsEditModal";
 import Carousel from "./Carousel/CarouselServer";
 import CarouselEditModal from "./Carousel/CarouselEditModal";

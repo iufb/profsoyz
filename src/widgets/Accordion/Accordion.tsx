@@ -4,6 +4,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/shared/ui";
+import clsx from "clsx";
 interface AccordionProps {
   items: AccordionItem[];
 }
@@ -24,7 +25,18 @@ function Accordion({ items }: AccordionProps) {
             {item.question}
           </AccordionTrigger>
           <AccordionContent className="text-lg bg-base6 text-base2 p-2 ">
-            {item.answer}
+            <div
+              className={clsx(
+                "quill-content",
+                "overflow-x-auto overflow-y-hidden",
+              )}
+              dangerouslySetInnerHTML={{
+                __html: item.answer
+                  .replace(/&lt;/g, "<")
+                  .replace(/&gt;/g, ">")
+                  .replace(/&amp;nbsp;/g, " "),
+              }}
+            />
           </AccordionContent>
         </AccordionItem>
       ))}

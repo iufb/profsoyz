@@ -20,8 +20,8 @@ const itemKeys = ["titleRu", "titleKz", "contentRu", "contentKz", "image"];
 const itemInputs = [
   { label: "Заголовок RU", value: "text" },
   { label: "Заголовок KZ", value: "text" },
-  { label: "Контент RU", value: "text" },
-  { label: "Контент KZ", value: "text" },
+  { label: "Контент RU", value: "quill" },
+  { label: "Контент KZ", value: "quill" },
   { value: "file" },
 ];
 
