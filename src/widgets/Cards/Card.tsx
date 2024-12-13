@@ -41,7 +41,8 @@ export const Card = ({
         className={cn(
           {
             base: "flex-grow-1 h-[80%] ",
-            horizontal: "col-start-1 col-end-2 ",
+            horizontal:
+              "col-start-1 col-end-2 flex justify-center items-center ",
           }[variant],
           "relative  ",
         )}
