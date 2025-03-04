@@ -42,11 +42,11 @@ function CardsClient({ title, variant, items }: CardsProps) {
             {forNews && (
                 <div className="flex justify-center text-base2 gap-10">
                     {max > 3 && <button onClick={() => setMax(3)}>{t("less")}</button>}
-                    {items.length > items.slice(0, max).length && (
+                    {items.length > items.reverse().slice(0, max).length && (
                         <button
                             onClick={() =>
                                 setMax((prev) => {
-                                    if (items.length <= items.slice(0, max).length) {
+                                    if (items.length <= items.reverse().slice(0, max).length) {
                                         return prev;
                                     }
 
