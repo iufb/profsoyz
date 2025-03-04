@@ -15,6 +15,7 @@ function CardsClient({ title, variant, items }: CardsProps) {
     const [max, setMax] = useState(3);
     const t = useTranslations();
     const params = useParams();
+    const reverse = items.reverse()
 
     const forNews =
         title.includes("жаңалықтар") ||
@@ -34,7 +35,7 @@ function CardsClient({ title, variant, items }: CardsProps) {
                             : "flex flex-col gap-2",
                     )}
                 >
-                    {items.reverse().slice(0, max).map((i, idx) => (
+                    {reverse.slice(0, max).map((i, idx) => (
                         <Card key={idx} variant={variant} {...i} />
                     ))}
                 </div>
@@ -42,11 +43,11 @@ function CardsClient({ title, variant, items }: CardsProps) {
             {forNews && (
                 <div className="flex justify-center text-base2 gap-10">
                     {max > 3 && <button onClick={() => setMax(3)}>{t("less")}</button>}
-                    {items.length > items.reverse().slice(0, max).length && (
+                    {reverse.length > reverse.slice(0, max).length && (
                         <button
                             onClick={() =>
                                 setMax((prev) => {
-                                    if (items.length <= items.reverse().slice(0, max).length) {
+                                    if (reverse.length <= reverse.slice(0, max).length) {
                                         return prev;
                                     }
 
