@@ -15,7 +15,7 @@ function CardsClient({ title, variant, items }: CardsProps) {
     const [max, setMax] = useState(3);
     const t = useTranslations();
     const params = useParams();
-    const reverse = items.reverse()
+    const reverse = [...items].reverse()
 
     const forNews =
         title.includes("жаңалықтар") ||
